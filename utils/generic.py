@@ -26,7 +26,7 @@ def mongo_find(data,
     返回:
         documents      结果文档
         page           分页数据
-                       (count: 分页总数, cur_page: 当前分页号, docs_per_page: 每页文档数)
+                       (docs_amount: 文档总数, docs_per_page: 每页文档数, cur_page: 当前分页号)
 
     示例:
         see app `sites`
