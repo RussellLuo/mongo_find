@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>网站列表</title>
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th width="160">域名</th>
+                    <th width="100">网站</th>
+                    <th width="100">行业</th>
+                    <th width="100">站长</th>
+                    <th width="100">PV</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for site in documents %}
+                <tr>
+                    <td>{{ site.domain }}</td>
+                    <td>{{ site.name }}</td>
+                    <td>{{ site.industry }}</td>
+                    <td>{{ site.user_name }}</td>
+                    <td>{{ site.pv }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
