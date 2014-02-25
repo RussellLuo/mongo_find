@@ -99,7 +99,7 @@ def get_sort_condition(data, sort_basic_args, sort_fields_map, sort_funcs):
 
 
 def get_cur_page(data):
-    """ 获取当前分页数
+    """ 获取当前分页号
     """
     try:
         page = int(data.get('page'))

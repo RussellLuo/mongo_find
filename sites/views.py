@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from .models import db
 from utils.generic import mongo_find
+from utils.django import to_dict
 
 
 params = {
@@ -53,22 +54,6 @@ params = {
 def show_sites(request, template):
     """ 显示网站列表
     """
-    data = lists_dict(request.GET)
+    data = to_dict(request.GET)
     result = mongo_find(data, **params)
     return render(request, template, result)
-
-
-def lists_dict(get):
-    """ 将request.GET中的查询数据转换为字典
-
-    字典结构:
-        key    字段名
-        value  字段值(有多个值时，为列表)
-    """
-    from django.http import QueryDict
-    assert isinstance(get, QueryDict)
-
-    return {
-        key: value if len(value) > 1 else value[0]
-        for key, value in get.lists()
-    }
