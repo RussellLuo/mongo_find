@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from copy import deepcopy
+
 
 def mongo_find(data,
                collection, foreign_keys={},
@@ -61,7 +63,7 @@ def mongo_find(data,
 def get_spec_condition(data, foreign_keys, spec_basic_args, spec_fields_map, spec_funcs):
     """ 获取筛选条件
     """
-    condition = spec_basic_args
+    condition = deepcopy(spec_basic_args)
 
     for field, match_type, data_field in spec_fields_map:
         value = data.get(data_field)
@@ -82,7 +84,7 @@ def get_spec_condition(data, foreign_keys, spec_basic_args, spec_fields_map, spe
 def get_sort_condition(data, sort_basic_args, sort_fields_map, sort_funcs):
     """ 获取排序条件
     """
-    condition = sort_basic_args
+    condition = deepcopy(sort_basic_args)
 
     for field, data_field in sort_fields_map:
         direction = data.get(data_field)

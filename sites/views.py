@@ -2,9 +2,9 @@
 
 from django.shortcuts import render
 
-from .models import db
 from utils.generic import mongo_find
-from utils.django import to_dict
+from utils.convertor import to_dict
+from .models import db
 
 
 params = {
